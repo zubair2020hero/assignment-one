@@ -31,9 +31,49 @@ function processInput(value) {
 // console.log(processInput(false));
 // -- 03 --
 function formatCoordinate(coordinate) {
-    return "Location: " + coordinate[2] + "(" + coordinate[0] + ", " + coordinate[1] + ")";
+    return ("Location: " +
+        coordinate[2] +
+        "(" +
+        coordinate[0] +
+        ", " +
+        coordinate[1] +
+        ")");
 }
-export {};
 // console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
 // console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
+// -- 04 --
+function concatenateArrays(...arrays) {
+    let result = [];
+    for (let array of arrays) {
+        result = result.concat(array);
+    }
+    return result;
+}
+function getPopularCourses(course, minStudents) {
+    const popularCourses = courses.filter(function (course) {
+        if (course.isPublished && course.students >= minStudents) {
+            return true;
+        }
+    });
+    return popularCourses;
+}
+// const courses = [
+//   { title: "TypeScript Mastery", students: 120, isPublished: true },
+//   { title: "Draft Course", students: 200, isPublished: false },
+//   { title: "Basic HTML", students: 45, isPublished: true },
+//   { title: "Next.js Pro", students: 85, isPublished: true }
+// ];
+// console.log(getPopularCourses(courses, 80));
+// -- 06 --
+function pluckValues(items, key) {
+    return items.map(item => item[key]);
+}
+const user = [
+    { id: 1, name: "Rakib", role: "Admin" },
+    { id: 2, name: "Sadia", role: "Editor" },
+    { id: 3, name: "Tariq", role: "Subscriber" },
+];
+console.log(pluckValues(user, "name"));
+console.log(pluckValues(user, "id"));
+export {};
 //# sourceMappingURL=solutions.js.map
